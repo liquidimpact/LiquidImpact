@@ -18,6 +18,8 @@ class Controller_User extends Controller_Base {
     {
         $page = $this->request->param('page', 1);
 
+        $m = new Model_User();
+
     }
 
     public function action_edit()

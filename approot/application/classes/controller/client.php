@@ -28,8 +28,6 @@ class Controller_Client extends Controller_Base {
         if ($this->request->method() == 'POST')
         {
             $post = $this->request->post();
-            var_dump($post);
-            exit();
 
             // logo will save by another way
             $data = array(

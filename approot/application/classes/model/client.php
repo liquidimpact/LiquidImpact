@@ -16,15 +16,16 @@ class Model_Client extends Model_Base {
 
     public function get_page($page, $per_page = 20)
     {
-        $page = $page - 1;
-        $sql = "SELECT *
-                FROM clients
-                LIMIT $per_page, {$page * $per_page}
-                ";
-
-        $result = $this->query($sql);
-
-        return $result->as_array();
+//        $offset = ($page - 1) * $per_page;
+//        $sql = "SELECT *
+//                FROM clients
+//                LIMIT {$per_page}, {$offset}
+//                ";
+//
+//        $result = $this->query($sql);
+//
+//        return $result->as_array();
+        return array();
     }
 
     public function update_client($data)
@@ -35,7 +36,7 @@ class Model_Client extends Model_Base {
 
     public function del_client($client_id)
     {
-        $sql = "DELETE * FROM clients WHERE client_id = {$client_id}";
+        $sql = "DELETE FROM clients WHERE client_id = {$client_id}";
         return $this->delete($sql);
     }
 

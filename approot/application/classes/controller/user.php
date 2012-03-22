@@ -4,7 +4,7 @@ class Controller_User extends Controller_Base {
 
 	public function action_index()
 	{
-		$this->list();
+		$this->action_list();
 	}
 
     protected function get_uid()
@@ -35,6 +35,17 @@ class Controller_User extends Controller_Base {
     }
 
     public function action_new()
-    {}
+    {
+        $user = array(
+            'name' => '',
+            'permission' => 2,
+        );
+        $body = View::factory('user/edit');
+
+        $body->bind('user', $user);
+        $body->set_global('title', 'Add New User');
+
+        $this->body = $body;
+    }
 
 } // End Welcome

@@ -14,6 +14,8 @@ class Controller_Case extends Controller_Base {
         $case_list = $m->get_page($page);
 
         $body = View::factory('case/list');
+        $body->set_global('title', "Case List {$page}");
+        $body->bind('case_list', $case_list);
 
         $this->body = $body;
     }
@@ -27,7 +29,7 @@ class Controller_Case extends Controller_Base {
             $data = array();
 
             $data['title'] = $post['title'];
-            $data['content'] = $post['content'];
+            $data['description'] = $post['description'];
 
             $m = new Model_Case();
 
@@ -45,12 +47,14 @@ class Controller_Case extends Controller_Base {
         } else{
             $case_id = $this->request->param('cid', null);
             if ($case_id === null) $this->request->redirect('/');
+
             $m = new Model_Case();
         }
 
         $case = $m->get_case($case_id);
 
         $body = View::factory('case/edit');
+        $body->set_global('title', "Edit Case {$case['name']}");
         $body->bind_global('case', $case);
 
         $this->body = $body;
@@ -69,7 +73,17 @@ class Controller_Case extends Controller_Base {
 
     public function action_new()
     {
+        $case = array(
+            'case_name' => '',
+            'case_category' => 0,
+            'description'   => '',
+        );
+
         $body = View::factory('case/edit');
+
+        $body->bind('case', $case);
+        $body->set_global('title', 'Add New Case');
+
         $this->body = $body;
     }
 } // End Case

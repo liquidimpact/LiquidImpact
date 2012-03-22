@@ -2,8 +2,6 @@
 
 class Model_Case extends Model_Base {
 
-    var $cat_list = array('Live Public', 'Gala', 'Fun & Play', 'Corporate', 'Life Style');
-
     public function get_case($case_id)
     {
         $sql = "SELECT *
@@ -35,16 +33,17 @@ class Model_Case extends Model_Base {
 
     public function get_page($page, $per_page = 20)
     {
-        $page = $page - 1;
+        $offset = ($page - 1)* $per_page;
 
         $sql = "SELECT *
                 FROM cases
                 ORDER BY
                   case_id
-                LIMIT $per_page, {$page * $per_page}
+                LIMIT {$per_page}, {$offset}
                 ";
 
-        $result = $this->query($sql);
-        return $result->as_array();
+//        $result = $this->query($sql);
+//        return $result->as_array();
+        return array();
     }
 }

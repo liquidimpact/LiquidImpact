@@ -37,7 +37,8 @@ class Model_Resource extends Model_Base {
                 LIMIT {$per_page}, {$offset};
                 ";
 
-        $result = $this->query($sql);
-        return $result->as_array();
+//        $result = $this->query($sql);
+//        return $result->as_array();
+        return array();
     }
 }

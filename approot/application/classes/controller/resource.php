@@ -26,7 +26,7 @@ class Controller_Resource extends Controller_Base {
 
         $m->rm($rid);
 
-        unlink($fileinfo['fpath']);
+        unlink($fileinfo['path']);
 
         $this->request->redirect('/resource');
     }

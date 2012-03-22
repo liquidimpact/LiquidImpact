@@ -7,16 +7,16 @@
 <?php endif;?>
     <fieldset>
       <div class="control-group">
-        <label class="control-label" for="client_name">Name</label>
+        <label class="control-label" for="name">Name</label>
         <div class="controls">
-          <input type="text" class="input-xlarge" id="client_name" name="client_name" value="<?php echo $client['client_name'];?>" />
+          <input type="text" class="input-xlarge" id="name" name="name" value="<?php echo $client['name'];?>" />
           <p class="help-block">Client Name</p>
         </div>
       </div>
       <div class="control-group">
 <?php if (array_key_exists('client_id', $client)):?>
-    <img class="client_log" src="<?php echo $client['client_log'];?>"/>
-        <input type="hidden" name="client_log" value="<?php echo $client['client_log'];?>" />
+    <img class="client_logo" src="<?php echo $client['logo'];?>"/>
+        <input type="hidden" name="logo" value="<?php echo $client['logo'];?>" />
 <?php endif;?>
         <label class="control-label" for="fileInput">Client Logo</label>
         <div class="controls">
@@ -25,9 +25,9 @@
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="content">Content</label>
+        <label class="control-label" for="content">Description</label>
         <div class="controls">
-          <textarea rows="10" cols="50" class="input-xxlarge" name="content" id="content"><?php echo $client['content'];?></textarea>
+          <textarea rows="10" cols="50" class="input-xxlarge" name="description" id="description"><?php echo $client['description'];?></textarea>
         </div>
       </div>
       <div class="form-actions">

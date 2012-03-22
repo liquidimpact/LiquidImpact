@@ -33,7 +33,7 @@ class Controller_Client extends Controller_Base {
             $data = array(
                 'client_name'   => $post['client_name'],
                 'client_log'    => $post['client_logo'],
-                'content'       => $post['content'],
+                'description'       => $post['description'],
             );
 
             $m = new Model_Client();
@@ -71,9 +71,9 @@ class Controller_Client extends Controller_Base {
     {
         $client = array(
 //            'client_id' => '',
-            'client_name' => '',
-            'client_log' => '',
-            'content' =>''
+            'name' => '',
+            'logo' => '',
+            'description' =>''
         );
 
         $body = View::factory('client/edit');

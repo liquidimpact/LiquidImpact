@@ -5,7 +5,7 @@ class Model_Client extends Model_Base {
     public function get_client($client_id)
     {
         $sql = "SELECT *
-                FROM cliens
+                FROM clients
                 WHERE
                   client_id = {$client_id}
                 ";
@@ -16,16 +16,15 @@ class Model_Client extends Model_Base {
 
     public function get_page($page, $per_page = 20)
     {
-//        $offset = ($page - 1) * $per_page;
-//        $sql = "SELECT *
-//                FROM clients
-//                LIMIT {$per_page}, {$offset}
-//                ";
-//
-//        $result = $this->query($sql);
-//
-//        return $result->as_array();
-        return array();
+        $offset = ($page - 1) * $per_page;
+        $sql = "SELECT *
+                FROM clients
+                LIMIT {$per_page}, {$offset}
+                ";
+
+        $result = $this->query($sql);
+
+        return $result->as_array();
     }
 
     public function update_client($data)

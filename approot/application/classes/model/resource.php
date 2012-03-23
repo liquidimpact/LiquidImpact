@@ -20,7 +20,7 @@ class Model_Resource extends Model_Base {
 
     public function add($data)
     {
-        $sql = "INSERT INTO resource(`fpath`)
+        $sql = "INSERT INTO resources(`fpath`)
                 values ({$data['fpath']})
                 ";
         list($id, $row) = $this->insert($sql);
@@ -37,8 +37,7 @@ class Model_Resource extends Model_Base {
                 LIMIT {$per_page}, {$offset};
                 ";
 
-//        $result = $this->query($sql);
-//        return $result->as_array();
-        return array();
+        $result = $this->query($sql);
+        return $result->as_array();
     }
 }

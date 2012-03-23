@@ -27,6 +27,15 @@ class Model_Client extends Model_Base {
         return $result->as_array();
     }
 
+    public function get_all()
+    {
+        $sql = 'SELECT * FROM clients';
+
+        $result = $this->query($sql);
+
+        return $result->as_array();
+    }
+
     public function update_client($client_id, $data)
     {
         $feilds = $this->generate_field($data);

@@ -21,7 +21,11 @@ class Controller_User extends Controller_Base {
         $m = new Model_User();
         $ulist = $m->get_page($page);
 
+        $body = View::factory('user/list');
+        $body->bind('user_list', $ulist);
+        $body->set_global('title', "User List Page {$page}");
 
+        $this->body = $body;
     }
 
     public function action_edit()

@@ -31,9 +31,8 @@ class Controller_Client extends Controller_Base {
 
             // logo will save by another way
             $data = array(
-                'client_name'   => $post['client_name'],
-                'client_log'    => $post['client_logo'],
-                'description'       => $post['description'],
+                'name'   => $post['name'],
+                'description'   => $post['description'],
             );
 
             $m = new Model_Client();
@@ -42,12 +41,22 @@ class Controller_Client extends Controller_Base {
 
             if ($client_id === null)
             {
-                list($client_id, $row) = $m->new_client($data);
+                $client_id= $m->new_client($data);
             } else {
-                $m->update_client($data);
+                $m->update_client($client_id, $data);
+            }
+            if (count($_FILES) > 0) {
+
+                $extend = pathinfo($_FILES['logo']['name']);
+                $extension = strtolower($extend['extension']);
+
+                $filename = $client_id. '.'. $extension;
+                $path = Upload::save($_FILES['logo'], $filename, './logo/');
+                if ($path != false)
+                    $m->update_logo($client_id, "/logo/{$filename}");
             }
         } else {
-            $client_id = $this->request->param('cid', null);
+            $client_id = $this->request->param('id', null);
             if ($client_id === null) $this->request->redirect('/login');
 
             $m = new Model_Client();
@@ -57,6 +66,7 @@ class Controller_Client extends Controller_Base {
 
         $body = View::factory('client/edit');
 
+        $body->bind('client', $client);
         $body->set_global('title', "Edit Client {$client['name']}");
 
         $this->body = $body;
@@ -64,13 +74,12 @@ class Controller_Client extends Controller_Base {
 
     public function action_del()
     {
-        $client_id = $this->request->param('cid', null);
+        $client_id = $this->request->param('id', null);
     }
 
     public function action_new()
     {
         $client = array(
-//            'client_id' => '',
             'name' => '',
             'logo' => '',
             'description' =>''

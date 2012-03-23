@@ -4,6 +4,7 @@ class Controller_Welcome extends Controller_Base {
 
 	public function action_index()
 	{
+        $this->json = true;
 		$this->response->body('hello, world!');
 	}
 

@@ -35,10 +35,21 @@ class Controller_Resource extends Controller_Base {
     {
         if ($this->request->method() === 'POST')
         {
-            Upload::save($_FILES['userfile']);
-            $m = new Model_Resource();
+            if (count($_FILES) > 0) {
 
-            $m->add($data);
+                $extend = pathinfo($_FILES['Filedata']['name']);
+//                $extension = strtolower($extend['extension']);
+
+                $filename = base64_encode($extend['basename']) . '.'. $extend['extension'];
+                $path = Upload::save($_FILES['Filedata'], $filename, './uploads/');
+                $this->json = true;
+                $this->response->body("/uploads/{$filename}");
+//                if ($path != false)
+//                    $m->update_logo($client_id, "/uploads/{$filename}");
+            }
+//            $m = new Model_Resource();
+//
+//            $m->add($data);
         }
     }
 

@@ -20,7 +20,7 @@
   <?php endif;?>
           <label class="control-label" for="logo">Client Logo</label>
           <div class="controls">
-            <input class="input-file" id="logo" type="file" name="logo">
+            <input class="input-file" id="logo" type="file" name="logo" accept="image/*">
             <p class="help-block">If not modify then left blank.</p>
           </div>
         </div>

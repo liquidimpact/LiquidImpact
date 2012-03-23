@@ -10,7 +10,7 @@
     <?php foreach($user_list as $u):?>
     <tr>
         <td><?php echo $u['user_id'];?></td>
-        <td><?php echo $u['name'];?></td>
+        <td><a href="/user/edit/<?php echo $u['user_id'];?>"><?php echo $u['name'];?></a></td>
         <td><?php echo He::$permission[$u['permission']];?></td>
     </tr>
     <?php endforeach;?>

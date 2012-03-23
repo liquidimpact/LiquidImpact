@@ -30,8 +30,8 @@ class Model_User extends Model_Base {
         $sql = "INSERT INTO users(`name`, `password`, `permission`)
                 VALUES('{$data['name']}', '{$data['password']}', {$data['permission']})
                 ";
-        list($user_id, $rows) = $this->insert($sql);
-        return $user_id;
+        list($id, $rows) = $this->insert($sql);
+        return $id;
     }
 
     public function update_user($user_id, $data)

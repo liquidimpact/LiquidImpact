@@ -7,7 +7,7 @@ class Model_User extends Model_Base {
         $sql = "SELECT *
                 FROM users
                 ORDER BY user_id
-                LIMIT $per_page, $offset
+                LIMIT $offset, $per_page
                 ";
         $result = $this->query($sql);
         return $result->as_array();
@@ -17,7 +17,7 @@ class Model_User extends Model_Base {
     {
         $sql = "SELECT *
                 FROM users
-                WHERE `user_id` = $user_id
+                WHERE `user_id` = '$user_id'
                 ";
 
         $result = $this->query($sql);
@@ -27,22 +27,24 @@ class Model_User extends Model_Base {
 
     public function add_user($data)
     {
-        $sql = "INSERT INTO users(`name`, `password`, `permission``)
-                VALUES({$data['name']}, {$data['password']}, {$data['permission']})
+        $sql = "INSERT INTO users(`name`, `password`, `permission`)
+                VALUES('{$data['name']}', '{$data['password']}', {$data['permission']})
                 ";
-        return $this->insert($sql);
+        list($user_id, $rows) = $this->insert($sql);
+        return $user_id;
     }
 
-    public function update_user($data)
+    public function update_user($user_id, $data)
     {
+        $feilds = $this->generate_field($data);
+
         $sql = "UPDATE users
                 SET
-                  `name` = {$data['name']},
-                  `password` = {$data['password']},
-                  `permission` = {$data['permission']}
+                  {$feilds}
                 WHERE
-                  `user_id` = {$data['user_id']}
+                  `user_id` = '{$user_id}'
                 ";
+
         return $this->update($sql);
     }
 
@@ -50,7 +52,7 @@ class Model_User extends Model_Base {
     {
         $sql = "DELETE *
                 FROM users
-                WHERE `user_id` = $user_id
+                WHERE `user_id` = '$user_id'
                 ";
 
         return $this->delete($sql);

@@ -10,7 +10,7 @@
         <label class="control-label" for="name">Name</label>
         <div class="controls">
           <input type="text" class="input-xlarge" id="name" name="name" value="<?php echo $user['name'];?>" />
-          <p class="help-block">user Name</p>
+          <p class="help-block">User Name</p>
         </div>
       </div>
         <div class="control-group">
@@ -22,9 +22,9 @@
             <p class="help-block">Password, repeat again</p>
           </div>
         </div>
-        <label class="control-label" for="category">Permission</label>
+        <label class="control-label" for="permission">Permission</label>
             <div class="controls">
-              <select id="category" name="category">
+              <select id="permission" name="permission">
                 <?php foreach(He::$permission as $key=>$val):?>
                 <option value="<?php echo $key;?>" <?php if($user['permission'] == $key):?> selected="selected" <?php endif;?>><?php echo $val;?></option>
                 <?php endforeach;?>

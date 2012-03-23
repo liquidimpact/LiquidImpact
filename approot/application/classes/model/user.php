@@ -17,7 +17,7 @@ class Model_User extends Model_Base {
     {
         $sql = "SELECT *
                 FROM users
-                WHERE `user_id` = '$user_id'
+                WHERE `user_id` = $user_id
                 ";
 
         $result = $this->query($sql);
@@ -42,7 +42,7 @@ class Model_User extends Model_Base {
                 SET
                   {$feilds}
                 WHERE
-                  `user_id` = '{$user_id}'
+                  `user_id` = {$user_id}
                 ";
 
         return $this->update($sql);
@@ -52,7 +52,7 @@ class Model_User extends Model_Base {
     {
         $sql = "DELETE *
                 FROM users
-                WHERE `user_id` = '$user_id'
+                WHERE `user_id` = $user_id
                 ";
 
         return $this->delete($sql);

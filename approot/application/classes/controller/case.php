@@ -28,24 +28,24 @@ class Controller_Case extends Controller_Base {
 
             $data = array();
 
-            $data['title'] = $post['title'];
+            $data['name'] = $post['name'];
+            $data['client_id'] = $post['client_id'];
+            $data['category'] = $post['category'];
             $data['description'] = $post['description'];
 
             $m = new Model_Case();
 
             // TODO: add attachment
+            $case_id = $post['case_id'];
             if (array_key_exists('case_id', $post)) {
-                $case_id = $post['case_id'];
-                $data['case_id'] = $case_id;
-
-                $m->update_case($data);
+                $m->update_case($case_id, $data);
             } else {
-                list($case_id, $row) = $m->new_case($data);
+                $case_id = $m->new_case($data);
             }
 
             $message = 'Case Has been saved';
         } else{
-            $case_id = $this->request->param('cid', null);
+            $case_id = $this->request->param('id', null);
             if ($case_id === null) $this->request->redirect('/');
 
             $m = new Model_Case();
@@ -53,15 +53,21 @@ class Controller_Case extends Controller_Base {
 
         $case = $m->get_case($case_id);
 
+        $client = new Model_Client();
+        $client_list = $client->get_all();
+
+
         $body = View::factory('case/edit');
         $body->set_global('title', "Edit Case {$case['name']}");
+
+        $body->bind('client_list', $client_list);
         $body->bind_global('case', $case);
 
         $this->body = $body;
     }
     public function action_del()
     {
-        $case_id = $this->request->param('cid', null);
+        $case_id = $this->request->param('id', null);
         if ($case_id === null) $this->request->redirect('/');
 
         $m = new Model_Case();
@@ -74,14 +80,19 @@ class Controller_Case extends Controller_Base {
     public function action_new()
     {
         $case = array(
-            'case_name' => '',
-            'case_category' => 0,
+            'name' => '',
+            'category' => 0,
             'description'   => '',
+            'client_id'     => 0,
         );
+
+        $m = new Model_Client();
+        $client_list = $m->get_all();
 
         $body = View::factory('case/edit');
 
         $body->bind('case', $case);
+        $body->bind('client_list', $client_list);
         $body->set_global('title', 'Add New Case');
 
         $this->body = $body;

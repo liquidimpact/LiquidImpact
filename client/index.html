@@ -23,30 +23,35 @@
 		<link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">	    
 	</head>
 	<body>
-	    <!-- <div id="header" class="navbar">
+	    <div id="header" class="navbar">
 	      <div class="navbar-inner">
 	        <div class="container">
-	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </a>
-	          <a class="brand" href="#">Project name</a>
 	          <div class="nav-collapse">
-	            <ul class="nav">
-	              <li class="active"><a href="#">Home</a></li>
-	              <li><a href="#about">About</a></li>
-	              <li><a href="#contact">Contact</a></li>
+	            <ul class="nav" id="nav-ul">
+	              <li data-ref="#home" class="active"><a>Home</a></li>
+	              <li data-ref="#service"><a>Our Services</a></li>
+	              <li data-ref="#case"><a>Case Study</a></li>
+		      	  <li data-ref="#client"><a>Clients</a></li>
+		      	  <li data-ref="#event"><a>Event Records</a></li>
+		      	  <li data-ref="#about"><a>About Us</a></li>
+		      	  <li data-ref="#client"><a>Contact Us</a></li>						
+		      	  <li data-ref="#resource"><a>Resources</a></li>								
 	            </ul>
 	          </div>
 	        </div>
 	      </div>
-	    </div> -->
+	    </div>
+		<div id="wrapper-outer">
 		<div id="wrapper">
-			<div id  = "home" class="leaf"></div>
-			<div id = "client" class="leaf"></div>
-			<div id = "case" class="leaf"></div>
-			<div id = "backstage" class="leaf"></div>
+			<div id = "home-panel" data-order="0" class="leaf"></div>
+			<div id = "service-panel" data-order="1" class="leaf"></div>
+			<div id = "case-panel" data-order="2" class="leaf"></div>
+			<div id = "client-panel" data-order="3" class="leaf"></div>			
+			<div id = "event-panel" data-order="4" class="leaf"></div>
+			<div id = "about-panel" data-order="5" class="leaf"></div>	
+			<div id = "contact-panel" data-order="6" class="leaf"></div>				
+			<div id = "resource-panel" data-order="7" class="leaf"></div>				
+		</div>
 		</div>
 		<script id="personTemplate" type="text/x-jquery-tmpl">
 	    </script>

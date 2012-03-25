@@ -19,13 +19,21 @@ mockdata=
 		,{id:"3",name:"superwolf",img:"http://url",description:"string"}
 		,{id:"4",name:"superwolf",img:"http://url",description:"string"}]
 	'/client/@id/events':
-		[{id:"1",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12"}
-		,{id:"2",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12"}
-		,{id:"3",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12"}]
+		[{id:"1",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}
+		,{id:"2",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}
+		,{id:"3",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}]
+	'/event/collection/@page'
+		[{id:"1",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}
+		,{id:"2",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}
+		,{id:"3",title:"superowlf",eventOn:new Date(),concept:'string',clientId:"12",user:{id:"123",name:"superwolf"}}]
 	'/event/@id':
-		[{id:"1",title:"superowlf",eventOn:new Date(),createOn:new Date(),content:'string',clientId:"12",user:{id:"123",name:"superwolf"}},
-		{id:"2",title:"superowlf",eventOn:new Date(),createOn:new Date(),content:'string',clientId:"12",user:{id:"123",name:"superwolf"}}
-		{id:"3",title:"superowlf",eventOn:new Date(),createOn:new Date(),content:'string',clientId:"12",user:{id:"123",name:"superwolf"}}]
+		id:"1"
+		title:"superowlf"
+		eventOn:new Date()
+		createOn:new Date()
+		content:'string'
+		clientId:"12"
+		user:{id:"123",name:"superwolf"}
 	'/backstage':
 		["imageurl","imageurl","imageurl","imageurl"]
 	'/resources'

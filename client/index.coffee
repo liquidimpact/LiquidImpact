@@ -1,13 +1,20 @@
 define (require, exports) ->
 	$(->	
 		console.log 'start'
-		screenWidth = document.body.clientWidth
-		console.log screenWidth
-	
-	
-		$("#wrapper").width($(".leaf").length * screenWidth)
-		$(".leaf").each((index,item)=>
-			$(item).css({width:screenWidth})
+		window.onresize = ->
+			initSize()
+		
+		initSize =->
+			screenWidth = document.body.clientWidth
+			$("#wrapper").width($(".leaf").length * screenWidth)
+			$(".leaf").each((index,item)->
+				$(item).css({width:screenWidth})
+			)
+			
+		initSize()
+		$(".leaf").each((index,item)->
+			if $(item).html() is ''
+				$('<div/>').addClass('test-content').html(item.id).appendTo(item)
 		)
 		
 		$("#nav-ul").delegate('li','click',->
@@ -15,7 +22,6 @@ define (require, exports) ->
 			$(this).addClass('active')
 			panelName =$(this).attr('data-ref')
 			$panel = $("#{panelName}-panel")
-			$("#wrapper").css({left:-$panel.attr('data-order')*screenWidth})
-			
+			$("#wrapper").css({left:-$panel.attr('data-order')*document.body.clientWidth})
 		)
 	)

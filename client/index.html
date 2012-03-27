@@ -17,36 +17,77 @@
 	    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">		
-		
-	    <!-- Le styles -->	
-		<link rel="stylesheet" href="./bootstrap/css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
-		<link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">	    
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
 	</head>
-	<body>
-	    <div id="header" class="navbar">
-	      <div class="navbar-inner">
-	        <div class="container">
-	          <div class="nav-collapse">
-	            <ul class="nav" id="nav-ul">
-	              <li data-ref="#home" class="active"><a>Home</a></li>
-	              <li data-ref="#service"><a>Our Services</a></li>
-	              <li data-ref="#case"><a>Case Study</a></li>
-		      	  <li data-ref="#client"><a>Clients</a></li>
-		      	  <li data-ref="#event"><a>Event Records</a></li>
-		      	  <li data-ref="#about"><a>About Us</a></li>
-		      	  <li data-ref="#client"><a>Contact Us</a></li>						
-		      	  <li data-ref="#resource"><a>Resources</a></li>								
-	            </ul>
-	          </div>
-	        </div>
-	      </div>
+	<body style="margin:0px;">
+	    <div id="header">
+            <ul id="nav-ul">
+              <li data-ref="#home" class="active"><a>Home</a></li>
+              <li data-ref="#service"><a>Our Services</a></li>
+              <li data-ref="#case"><a>Case Study</a></li>
+	      	  <li data-ref="#client"><a>Clients</a></li>
+	      	  <li data-ref="#event"><a>Event Records</a></li>
+	      	  <li data-ref="#about"><a>About Us</a></li>
+	      	  <li data-ref="#contact"><a>Contact Us</a></li>						
+	      	  <li data-ref="#resource"><a>Resources</a></li>								
+            </ul>
 	    </div>
 		<div id="wrapper-outer">
 		<div id="wrapper">
 			<div id = "home-panel" data-order="0" class="leaf"></div>
-			<div id = "service-panel" data-order="1" class="leaf"></div>
-			<div id = "case-panel" data-order="2" class="leaf"></div>
-			<div id = "client-panel" data-order="3" class="leaf"></div>			
+			<div id = "service-panel" data-order="1" class="leaf">
+				<section id="service-section">
+					<h1>Our Service</h1>
+					<ul>
+						<li><h3><a href="#service/introduction">Introduction</a></h3></li>
+						<li><h3><a href="#service/mananagment-services">Management Services</a></h3></li>
+						<li><h3><a href="#service/event-genres">Event Genres</a></h3></li>
+						<li><h3><a href="#service/special-services">Special Services</h3></a></li>																		
+					</ul>
+				</section>
+			</div>
+			<div id = "case-panel" data-order="2" class="leaf">
+				<section id="case-section">
+					<h1>Case Study</h1>
+					<ul>
+						<li>
+							<div class="outer"><div>Live Public</div></div>
+						</li>
+						<li>
+							<div class="outer"><div>Gala</div></div>
+						</li>    
+						<li>     
+							<div class="outer"><div>Gala</div></div>
+						</li>    
+						<li>     
+							<div class="outer"><div>Gala</div></div>
+						</li>   
+						<li>    
+							<div class="outer"><div>Gala</div></div>
+						</li>
+					</ul>
+				</section>
+			</div>
+			<div id = "client-panel" data-order="3" class="leaf">
+				<section id="client-section">
+					<div><div><img src="img/logo-1.png" /></div></div>
+					<div><div><img src="img/logo-2.png" /></div></div>
+					<div><div><img src="img/logo-3.png" /></div></div>   								
+					<div><div><img src="img/logo-1.png" /></div></div>
+					<div><div><img src="img/logo-2.png" /></div></div>
+					<div><div><img src="img/logo-3.png" /></div></div>   								
+					<div><div><img src="img/logo-1.png" /></div></div>
+					<div><div><img src="img/logo-2.png" /></div></div>
+					<div><div><img src="img/logo-3.png" /></div></div>   								
+					<div><div><img src="img/logo-1.png" /></div></div>
+					<div><div><img src="img/logo-2.png" /></div></div>
+					<div><div><img src="img/logo-3.png" /></div></div>   								
+					<div><div><img src="img/logo-1.png" /></div></div>
+					<div><div><img src="img/logo-2.png" /></div></div>
+					<div><div><img src="img/logo-3.png" /></div></div>   								
+				</section>
+			</div>			
 			<div id = "event-panel" data-order="4" class="leaf"></div>
 			<div id = "about-panel" data-order="5" class="leaf"></div>	
 			<div id = "contact-panel" data-order="6" class="leaf"></div>				
